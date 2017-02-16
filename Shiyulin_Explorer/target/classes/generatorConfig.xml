@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+
+<generatorConfiguration >
+
+    <!--数据库驱动jar -->
+    <classPathEntry location="D:\maven\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+    <!--<context id="context1" >-->
+
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        <!--</commentGenerator>-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/memorial" userId="root" password="123456" />-->
+
+        <!--<javaTypeResolver>-->
+            <!--<property name="forceBigDecimals" value="false"/>-->
+        <!--</javaTypeResolver>-->
+
+        <!--<javaModelGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.login.pojo" targetProject="src\main\java" />-->
+
+        <!--<sqlMapGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.login.mapper" targetProject="src\main\java" />-->
+
+        <!--<javaClientGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.login.mapper" targetProject="src\main\java" type="XMLMAPPER" />-->
+
+        <!--<table schema="memorial" tableName="auth_function" />-->
+        <!--<table schema="memorial" tableName="auth_role" />-->
+        <!--<table schema="memorial" tableName="auth_user" />-->
+        <!--<table schema="memorial" tableName="auth_role_function" />-->
+        <!--<table schema="memorial" tableName="auth_user_role" />-->
+
+    <!--</context>-->
+    <!--<context id="context2" >-->
+
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        <!--</commentGenerator>-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/memorial" userId="root" password="123456" />-->
+
+        <!--<javaTypeResolver>-->
+            <!--<property name="forceBigDecimals" value="false"/>-->
+        <!--</javaTypeResolver>-->
+
+        <!--<javaModelGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.music.pojo" targetProject="src\main\java" />-->
+
+        <!--<sqlMapGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.music.mapper" targetProject="src\main\java" />-->
+
+        <!--<javaClientGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.music.mapper" targetProject="src\main\java" type="XMLMAPPER" />-->
+
+        <!--<table schema="memorial" tableName="music_info" />-->
+        <!--<table schema="memorial" tableName="music_lyric" />-->
+        <!--<table schema="memorial" tableName="music_mv" />-->
+        <!--<table schema="memorial" tableName="music_album" />-->
+
+
+    <!--</context>-->
+    <!--<context id="context3" >-->
+
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        <!--</commentGenerator>-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/memorial" userId="root" password="123456" />-->
+
+        <!--<javaTypeResolver>-->
+            <!--<property name="forceBigDecimals" value="false"/>-->
+        <!--</javaTypeResolver>-->
+
+        <!--<javaModelGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.zd.pojo" targetProject="src\main\java" />-->
+
+        <!--<sqlMapGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.zd.mapper" targetProject="src\main\java" />-->
+
+        <!--<javaClientGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.zd.mapper" targetProject="src\main\java" type="XMLMAPPER" />-->
+
+        <!--<table schema="memorial" tableName="zd_file_type" />-->
+        <!--<table schema="memorial" tableName="zd_level" />-->
+        <!--<table schema="memorial" tableName="zd_role" />-->
+        <!--<table schema="memorial" tableName="zd_sex" />-->
+
+
+    <!--&lt;!&ndash;</context>&ndash;&gt;-->
+    <!--<context id="context4" >-->
+
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        <!--</commentGenerator>-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/memorial" userId="root" password="123456" />-->
+
+        <!--<javaTypeResolver>-->
+            <!--<property name="forceBigDecimals" value="false"/>-->
+        <!--</javaTypeResolver>-->
+
+        <!--<javaModelGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.file.pojo" targetProject="src\main\java" />-->
+
+        <!--<sqlMapGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.file.mapper" targetProject="src\main\java" />-->
+
+        <!--<javaClientGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.file.mapper" targetProject="src\main\java" type="XMLMAPPER" />-->
+
+        <!--<table schema="memorial" tableName="file_up" />-->
+
+
+    <!--</context>-->
+
+
+    <context id="context5" >
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/memorial" userId="root" password="123456" />
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.picture.pojo" targetProject="src\main\java" />
+
+        <sqlMapGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.picture.mapper" targetProject="src\main\java" />
+
+        <javaClientGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.picture.mapper" targetProject="src\main\java" type="XMLMAPPER" />
+
+        <table schema="memorial" tableName="picture_info" />
+
+
+    </context>
+    <!--<context id="context6" >-->
+
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        <!--</commentGenerator>-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/memorial" userId="root" password="123456" />-->
+
+        <!--<javaTypeResolver>-->
+            <!--<property name="forceBigDecimals" value="false"/>-->
+        <!--</javaTypeResolver>-->
+
+        <!--<javaModelGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.video.pojo" targetProject="src\main\java" />-->
+
+        <!--<sqlMapGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.video.mapper" targetProject="src\main\java" />-->
+
+        <!--<javaClientGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.video.mapper" targetProject="src\main\java" type="XMLMAPPER" />-->
+
+        <!--<table schema="memorial" tableName="video_info" />-->
+
+
+    <!--</context>-->
+
+    <!--<context id="context7" >-->
+
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        <!--</commentGenerator>-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/memorial" userId="root" password="123456" />-->
+
+        <!--<javaTypeResolver>-->
+            <!--<property name="forceBigDecimals" value="false"/>-->
+        <!--</javaTypeResolver>-->
+
+        <!--<javaModelGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.common.fmgx.pojo" targetProject="src\main\java" />-->
+
+        <!--<sqlMapGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.common.fmgx.mapper" targetProject="src\main\java" />-->
+
+        <!--<javaClientGenerator targetPackage="com.Zeal.Shiyulin_Explorer.modules.common.fmgx.mapper" targetProject="src\main\java" type="XMLMAPPER" />-->
+
+        <!--<table schema="memorial" tableName="img_fmgx" />-->
+
+
+    <!--</context>-->
+
+
+</generatorConfiguration>

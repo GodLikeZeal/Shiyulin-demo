@@ -1,0 +1,121 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.my_nav {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 64px;
+	z-index:10;
+}
+
+.my_container {
+	width: 100%;
+	height: 900px;
+}
+
+.my_footer {
+	display: block;
+	position: absolute;
+	height: 200px;
+	width: 100%;
+	background-color: #0089EC;
+}
+
+.left_nav {
+	position:static;
+	float: left;
+	padding-top: 64px;
+	margin-left: 0;
+	width: 25%;
+	height: 666px;
+	background-color: darkseagreen;
+	
+}
+
+.left_nav .left_big{
+    width: 244px;
+    color: #c6c6c6;
+}
+
+.left_nav .left_btn{
+	position: fixed;
+    top: 50%;
+    left: 244px;
+    z-index: 10;
+    overflow: hidden;
+    cursor: pointer;
+    width: 15px;
+    height: 150px;
+    margin-top: -50px;
+    display: block;
+}
+
+.left_nav .left_btn span{
+	width: 15px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    display: block;
+}
+
+.right_content {
+	float: right;
+	position: static;
+	padding-top: 64px;
+	margin-left: 0;
+	width: 75%;
+	height: 666px;
+}
+.fullpage-login-register {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 150px;
+	height: 70px;
+	z-index: 7;
+	padding-top: 20px;
+}
+
+.fullpage-login-register .fullpage-login {
+	float: left;
+	font-size: 20px;
+	padding: 5px;
+}
+
+.fullpage-login-register .line {
+	float: left;
+	font-size: 20px;
+	padding: 5px;
+}
+
+.fullpage-login-register .fullpage-register {
+	float: left;
+	font-size: 20px;
+	padding: 5px;
+}
+
+.fullpage-login-register a:hover {
+	
+}
+.model_bg {
+	background-color: #e3e3e3;
+	position: absolute;
+	z-index: 101;
+	left: 0;
+	top: 0;
+	display: none;
+	width: 100%;
+	height: 1000px;
+	opacity: 0;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+}
+.lol{
+	
+}

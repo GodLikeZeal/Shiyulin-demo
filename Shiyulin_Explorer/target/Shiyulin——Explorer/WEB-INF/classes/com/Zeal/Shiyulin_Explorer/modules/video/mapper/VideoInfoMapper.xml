@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Zeal.Shiyulin_Explorer.modules.video.mapper.VideoInfoMapper">
+  <resultMap id="BaseResultMap" type="com.Zeal.Shiyulin_Explorer.modules.video.pojo.VideoInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="suffix" jdbcType="VARCHAR" property="suffix" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+    <result column="resolution" jdbcType="VARCHAR" property="resolution" />
+    <result column="companny" jdbcType="VARCHAR" property="companny" />
+    <result column="director" jdbcType="VARCHAR" property="director" />
+    <result column="playactor" jdbcType="VARCHAR" property="playactor" />
+    <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="issuetime" jdbcType="DATE" property="issuetime" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="label" jdbcType="VARCHAR" property="label" />
+    <result column="click_num" jdbcType="BIGINT" property="clickNum" />
+    <result column="video_url" jdbcType="VARCHAR" property="videoUrl" />
+    <result column="file_id" jdbcType="BIGINT" property="fileId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, type, suffix, size, resolution, companny, director, playactor, price, issuetime, 
+    introduction, label, click_num, video_url, file_id
+  </sql>
+  <select id="selectByExample" parameterType="com.Zeal.Shiyulin_Explorer.modules.video.pojo.VideoInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from video_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="pageNumber != null and pageSize!= null">
+      limit  #{pageNumber},#{pageSize}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from video_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from video_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.Zeal.Shiyulin_Explorer.modules.video.pojo.VideoInfoExample">
+    delete from video_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.Zeal.Shiyulin_Explorer.modules.video.pojo.VideoInfo">
+    insert into video_info (id, name, type, 
+      suffix, size, resolution, 
+      companny, director, playactor, 
+      price, issuetime, introduction, 
+      label, click_num, video_url, 
+      file_id)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{suffix,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, #{resolution,jdbcType=VARCHAR}, 
+      #{companny,jdbcType=VARCHAR}, #{director,jdbcType=VARCHAR}, #{playactor,jdbcType=VARCHAR}, 
+      #{price,jdbcType=VARCHAR}, #{issuetime,jdbcType=DATE}, #{introduction,jdbcType=VARCHAR}, 
+      #{label,jdbcType=VARCHAR}, #{clickNum,jdbcType=BIGINT}, #{videoUrl,jdbcType=VARCHAR}, 
+      #{fileId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Zeal.Shiyulin_Explorer.modules.video.pojo.VideoInfo">
+    insert into video_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="suffix != null">
+        suffix,
+      </if>
+      <if test="size != null">
+        size,
+      </if>
+      <if test="resolution != null">
+        resolution,
+      </if>
+      <if test="companny != null">
+        companny,
+      </if>
+      <if test="director != null">
+        director,
+      </if>
+      <if test="playactor != null">
+        playactor,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="issuetime != null">
+        issuetime,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+      <if test="label != null">
+        label,
+      </if>
+      <if test="clickNum != null">
+        click_num,
+      </if>
+      <if test="videoUrl != null">
+        video_url,
+      </if>
+      <if test="fileId != null">
+        file_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="suffix != null">
+        #{suffix,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="resolution != null">
+        #{resolution,jdbcType=VARCHAR},
+      </if>
+      <if test="companny != null">
+        #{companny,jdbcType=VARCHAR},
+      </if>
+      <if test="director != null">
+        #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="playactor != null">
+        #{playactor,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="issuetime != null">
+        #{issuetime,jdbcType=DATE},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null">
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="clickNum != null">
+        #{clickNum,jdbcType=BIGINT},
+      </if>
+      <if test="videoUrl != null">
+        #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null">
+        #{fileId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.Zeal.Shiyulin_Explorer.modules.video.pojo.VideoInfoExample" resultType="java.lang.Integer">
+    select count(*) from video_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update video_info
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.suffix != null">
+        suffix = #{record.suffix,jdbcType=VARCHAR},
+      </if>
+      <if test="record.size != null">
+        size = #{record.size,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resolution != null">
+        resolution = #{record.resolution,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companny != null">
+        companny = #{record.companny,jdbcType=VARCHAR},
+      </if>
+      <if test="record.director != null">
+        director = #{record.director,jdbcType=VARCHAR},
+      </if>
+      <if test="record.playactor != null">
+        playactor = #{record.playactor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=VARCHAR},
+      </if>
+      <if test="record.issuetime != null">
+        issuetime = #{record.issuetime,jdbcType=DATE},
+      </if>
+      <if test="record.introduction != null">
+        introduction = #{record.introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.label != null">
+        label = #{record.label,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clickNum != null">
+        click_num = #{record.clickNum,jdbcType=BIGINT},
+      </if>
+      <if test="record.videoUrl != null">
+        video_url = #{record.videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileId != null">
+        file_id = #{record.fileId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update video_info
+    set id = #{record.id,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      suffix = #{record.suffix,jdbcType=VARCHAR},
+      size = #{record.size,jdbcType=VARCHAR},
+      resolution = #{record.resolution,jdbcType=VARCHAR},
+      companny = #{record.companny,jdbcType=VARCHAR},
+      director = #{record.director,jdbcType=VARCHAR},
+      playactor = #{record.playactor,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=VARCHAR},
+      issuetime = #{record.issuetime,jdbcType=DATE},
+      introduction = #{record.introduction,jdbcType=VARCHAR},
+      label = #{record.label,jdbcType=VARCHAR},
+      click_num = #{record.clickNum,jdbcType=BIGINT},
+      video_url = #{record.videoUrl,jdbcType=VARCHAR},
+      file_id = #{record.fileId,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Zeal.Shiyulin_Explorer.modules.video.pojo.VideoInfo">
+    update video_info
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="suffix != null">
+        suffix = #{suffix,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="resolution != null">
+        resolution = #{resolution,jdbcType=VARCHAR},
+      </if>
+      <if test="companny != null">
+        companny = #{companny,jdbcType=VARCHAR},
+      </if>
+      <if test="director != null">
+        director = #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="playactor != null">
+        playactor = #{playactor,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="issuetime != null">
+        issuetime = #{issuetime,jdbcType=DATE},
+      </if>
+      <if test="introduction != null">
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null">
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="clickNum != null">
+        click_num = #{clickNum,jdbcType=BIGINT},
+      </if>
+      <if test="videoUrl != null">
+        video_url = #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null">
+        file_id = #{fileId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Zeal.Shiyulin_Explorer.modules.video.pojo.VideoInfo">
+    update video_info
+    set name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      suffix = #{suffix,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      resolution = #{resolution,jdbcType=VARCHAR},
+      companny = #{companny,jdbcType=VARCHAR},
+      director = #{director,jdbcType=VARCHAR},
+      playactor = #{playactor,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      issuetime = #{issuetime,jdbcType=DATE},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      label = #{label,jdbcType=VARCHAR},
+      click_num = #{clickNum,jdbcType=BIGINT},
+      video_url = #{videoUrl,jdbcType=VARCHAR},
+      file_id = #{fileId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Zeal.Shiyulin_Explorer.modules.music.mapper.MusicInfoMapper">
+  <resultMap id="BaseResultMap" type="com.Zeal.Shiyulin_Explorer.modules.music.pojo.MusicInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="genre" jdbcType="VARCHAR" property="genre" />
+    <result column="companny" jdbcType="VARCHAR" property="companny" />
+    <result column="issutime" jdbcType="DATE" property="issutime" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+    <result column="music_url" jdbcType="VARCHAR" property="musicUrl" />
+    <result column="cover_pic" jdbcType="VARCHAR" property="coverPic" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="click_num" jdbcType="BIGINT" property="clickNum" />
+    <result column="label" jdbcType="VARCHAR" property="label" />
+    <result column="album_id" jdbcType="BIGINT" property="albumId" />
+    <result column="player_id" jdbcType="BIGINT" property="playerId" />
+    <result column="lyrics_id" jdbcType="BIGINT" property="lyricsId" />
+    <result column="mv_id" jdbcType="BIGINT" property="mvId" />
+    <result column="file_id" jdbcType="BIGINT" property="fileId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, language, genre, companny, issutime, size, music_url, cover_pic, introduction, 
+    click_num, label, album_id, player_id, lyrics_id, mv_id, file_id
+  </sql>
+  <select id="selectByExample" parameterType="com.Zeal.Shiyulin_Explorer.modules.music.pojo.MusicInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from music_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="pageNumber != null and pageSize!= null">
+      limit  #{pageNumber},#{pageSize}
+    </if>
+  </select>
+  <select id="selectMusicInfoByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from music_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteMusicInfoByPrimaryKey" parameterType="java.lang.Long">
+    delete from music_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.Zeal.Shiyulin_Explorer.modules.music.pojo.MusicInfoExample">
+    delete from music_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.Zeal.Shiyulin_Explorer.modules.music.pojo.MusicInfo">
+    insert into music_info (id, name, language, 
+      genre, companny, issutime, 
+      size, music_url, cover_pic, 
+      introduction, click_num, label, 
+      album_id, player_id, lyrics_id, 
+      mv_id, file_id)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, 
+      #{genre,jdbcType=VARCHAR}, #{companny,jdbcType=VARCHAR}, #{issutime,jdbcType=DATE}, 
+      #{size,jdbcType=VARCHAR}, #{musicUrl,jdbcType=VARCHAR}, #{coverPic,jdbcType=VARCHAR}, 
+      #{introduction,jdbcType=VARCHAR}, #{clickNum,jdbcType=BIGINT}, #{label,jdbcType=VARCHAR}, 
+      #{albumId,jdbcType=BIGINT}, #{playerId,jdbcType=BIGINT}, #{lyricsId,jdbcType=BIGINT}, 
+      #{mvId,jdbcType=BIGINT}, #{fileId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Zeal.Shiyulin_Explorer.modules.music.pojo.MusicInfo">
+    insert into music_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="language != null">
+        language,
+      </if>
+      <if test="genre != null">
+        genre,
+      </if>
+      <if test="companny != null">
+        companny,
+      </if>
+      <if test="issutime != null">
+        issutime,
+      </if>
+      <if test="size != null">
+        size,
+      </if>
+      <if test="musicUrl != null">
+        music_url,
+      </if>
+      <if test="coverPic != null">
+        cover_pic,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+      <if test="clickNum != null">
+        click_num,
+      </if>
+      <if test="label != null">
+        label,
+      </if>
+      <if test="albumId != null">
+        album_id,
+      </if>
+      <if test="playerId != null">
+        player_id,
+      </if>
+      <if test="lyricsId != null">
+        lyrics_id,
+      </if>
+      <if test="mvId != null">
+        mv_id,
+      </if>
+      <if test="fileId != null">
+        file_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="genre != null">
+        #{genre,jdbcType=VARCHAR},
+      </if>
+      <if test="companny != null">
+        #{companny,jdbcType=VARCHAR},
+      </if>
+      <if test="issutime != null">
+        #{issutime,jdbcType=DATE},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="musicUrl != null">
+        #{musicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="coverPic != null">
+        #{coverPic,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="clickNum != null">
+        #{clickNum,jdbcType=BIGINT},
+      </if>
+      <if test="label != null">
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="albumId != null">
+        #{albumId,jdbcType=BIGINT},
+      </if>
+      <if test="playerId != null">
+        #{playerId,jdbcType=BIGINT},
+      </if>
+      <if test="lyricsId != null">
+        #{lyricsId,jdbcType=BIGINT},
+      </if>
+      <if test="mvId != null">
+        #{mvId,jdbcType=BIGINT},
+      </if>
+      <if test="fileId != null">
+        #{fileId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.Zeal.Shiyulin_Explorer.modules.music.pojo.MusicInfoExample" resultType="java.lang.Integer">
+    select count(*) from music_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update music_info
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.language != null">
+        language = #{record.language,jdbcType=VARCHAR},
+      </if>
+      <if test="record.genre != null">
+        genre = #{record.genre,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companny != null">
+        companny = #{record.companny,jdbcType=VARCHAR},
+      </if>
+      <if test="record.issutime != null">
+        issutime = #{record.issutime,jdbcType=DATE},
+      </if>
+      <if test="record.size != null">
+        size = #{record.size,jdbcType=VARCHAR},
+      </if>
+      <if test="record.musicUrl != null">
+        music_url = #{record.musicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.coverPic != null">
+        cover_pic = #{record.coverPic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.introduction != null">
+        introduction = #{record.introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clickNum != null">
+        click_num = #{record.clickNum,jdbcType=BIGINT},
+      </if>
+      <if test="record.label != null">
+        label = #{record.label,jdbcType=VARCHAR},
+      </if>
+      <if test="record.albumId != null">
+        album_id = #{record.albumId,jdbcType=BIGINT},
+      </if>
+      <if test="record.playerId != null">
+        player_id = #{record.playerId,jdbcType=BIGINT},
+      </if>
+      <if test="record.lyricsId != null">
+        lyrics_id = #{record.lyricsId,jdbcType=BIGINT},
+      </if>
+      <if test="record.mvId != null">
+        mv_id = #{record.mvId,jdbcType=BIGINT},
+      </if>
+      <if test="record.fileId != null">
+        file_id = #{record.fileId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update music_info
+    set id = #{record.id,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      language = #{record.language,jdbcType=VARCHAR},
+      genre = #{record.genre,jdbcType=VARCHAR},
+      companny = #{record.companny,jdbcType=VARCHAR},
+      issutime = #{record.issutime,jdbcType=DATE},
+      size = #{record.size,jdbcType=VARCHAR},
+      music_url = #{record.musicUrl,jdbcType=VARCHAR},
+      cover_pic = #{record.coverPic,jdbcType=VARCHAR},
+      introduction = #{record.introduction,jdbcType=VARCHAR},
+      click_num = #{record.clickNum,jdbcType=BIGINT},
+      label = #{record.label,jdbcType=VARCHAR},
+      album_id = #{record.albumId,jdbcType=BIGINT},
+      player_id = #{record.playerId,jdbcType=BIGINT},
+      lyrics_id = #{record.lyricsId,jdbcType=BIGINT},
+      mv_id = #{record.mvId,jdbcType=BIGINT},
+      file_id = #{record.fileId,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Zeal.Shiyulin_Explorer.modules.music.pojo.MusicInfo">
+    update music_info
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="genre != null">
+        genre = #{genre,jdbcType=VARCHAR},
+      </if>
+      <if test="companny != null">
+        companny = #{companny,jdbcType=VARCHAR},
+      </if>
+      <if test="issutime != null">
+        issutime = #{issutime,jdbcType=DATE},
+      </if>
+      <if test="size != null">
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="musicUrl != null">
+        music_url = #{musicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="coverPic != null">
+        cover_pic = #{coverPic,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="clickNum != null">
+        click_num = #{clickNum,jdbcType=BIGINT},
+      </if>
+      <if test="label != null">
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="albumId != null">
+        album_id = #{albumId,jdbcType=BIGINT},
+      </if>
+      <if test="playerId != null">
+        player_id = #{playerId,jdbcType=BIGINT},
+      </if>
+      <if test="lyricsId != null">
+        lyrics_id = #{lyricsId,jdbcType=BIGINT},
+      </if>
+      <if test="mvId != null">
+        mv_id = #{mvId,jdbcType=BIGINT},
+      </if>
+      <if test="fileId != null">
+        file_id = #{fileId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Zeal.Shiyulin_Explorer.modules.music.pojo.MusicInfo">
+    update music_info
+    set name = #{name,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      genre = #{genre,jdbcType=VARCHAR},
+      companny = #{companny,jdbcType=VARCHAR},
+      issutime = #{issutime,jdbcType=DATE},
+      size = #{size,jdbcType=VARCHAR},
+      music_url = #{musicUrl,jdbcType=VARCHAR},
+      cover_pic = #{coverPic,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      click_num = #{clickNum,jdbcType=BIGINT},
+      label = #{label,jdbcType=VARCHAR},
+      album_id = #{albumId,jdbcType=BIGINT},
+      player_id = #{playerId,jdbcType=BIGINT},
+      lyrics_id = #{lyricsId,jdbcType=BIGINT},
+      mv_id = #{mvId,jdbcType=BIGINT},
+      file_id = #{fileId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

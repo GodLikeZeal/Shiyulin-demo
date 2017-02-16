@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+
+<generatorConfiguration >
+
+  <!--数据库驱动jar -->
+  <classPathEntry location="D:\maven\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+  <context id="context1" >
+
+  <commentGenerator>
+  
+  <property name="suppressAllComments" value="false"/>
+  </commentGenerator>
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/memorial" userId="root" password="123456" />
+ 
+    <javaTypeResolver>
+    <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+    
+    <javaModelGenerator targetPackage="com.Zeal.Shiyulin.modules.login.pojo" targetProject="src\main\java" />
+    
+    <sqlMapGenerator targetPackage="com.Zeal.Shiyulin.modules.login.mapper" targetProject="src\main\java" />
+    
+    <javaClientGenerator targetPackage="com.Zeal.Shiyulin.modules.login.mapper" targetProject="src\main\java" type="XMLMAPPER" />
+    
+    <table schema="memorial" tableName="user_info" />
+    <table schema="memorial" tableName="user_login" />
+    <table schema="memorial" tableName="user_power" />
+    <table schema="memorial" tableName="zd_level" />
+    <table schema="memorial" tableName="zd_role" />
+    <table schema="memorial" tableName="zd_sex" />
+  </context>
+</generatorConfiguration>

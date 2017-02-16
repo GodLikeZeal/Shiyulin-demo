@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Shiyulin_Exlporer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Shiyulin——Explorer.war">
+      <element id="artifact" artifact-name="Shiyulin_Exlporer:war exploded" />
+    </root>
+  </artifact>
+</component>
